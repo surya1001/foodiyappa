@@ -1,0 +1,152 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+a {
+  text-decoration: none !important;
+}
+/* home */
+.banner {
+  height: 85vh;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.5)),
+    url("https://images.pexels.com/photos/5638751/pexels-photo-5638751.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+  background-repeat: none;
+  background-size: cover;
+  background-position: center;
+}
+.banner-content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.banner-p-text {
+  max-width: 50%;
+  line-height: 2;
+  font-size: 1.2rem;
+  text-align: center;
+}
+.banner-btn {
+  background-color: orangered !important;
+  color: #fff !important;
+  letter-spacing: 4px;
+  transition: all 1s !important;
+  border-radius: 5px !important;
+}
+.banner-btn:hover {
+  background: rgba(255, 60, 0, 0.7) !important;
+  letter-spacing: 6px;
+}
+
+.display-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.display-content p {
+  font-size: 1.5rem;
+  width: 70%;
+  text-align: center;
+}
+.display-content p:before {
+  content: "“";
+  position: absolute;
+  top: 10%;
+  left: 20%;
+  font-size: 5rem;
+  color: blue;
+}
+.steps i {
+  font-size: 2.5rem;
+  margin-top: 10px;
+}
+.steps-container {
+  padding: 20px;
+  margin-top: 10px;
+}
+
+.admin .active a {
+  color: #fff !important;
+}
+.qtyBtn {
+  height: 18px;
+  width: 18px;
+  font-size: 0.7rem;
+  color: #fff;
+  background-color: green;
+  text-align: center;
+  line-height: 18px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.fa-minus {
+  background-color: orangered;
+}
+.fa-trash {
+  cursor: pointer;
+}
+p {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+.table-dark {
+  background-color: #1a1a1a !important;
+}
+
+.footer-links a {
+  color: #fff;
+  text-decoration: none;
+}
+.social-icons {
+  font-size: 1.4rem;
+  margin-right: 10px;
+  color: #fff;
+}
+.footer-icons {
+  background-color: #fff;
+  padding: 8px;
+  border-radius: 50%;
+  color: rgb(143, 114, 103);
+  font-size: 1.5rem;
+}
+
+@media screen and (max-width: 790px) {
+  .banner-content h1 {
+    font-size: 1rem;
+  }
+
+  .banner-p-text {
+    max-width: 70%;
+    line-height: 1.5;
+    font-size: 1.1rem;
+  }
+
+  .display-content p {
+    font-size: 1.3rem;
+    width: 80%;
+    text-align: center;
+  }
+  .display-content p:before {
+    content: "“";
+    position: absolute;
+    top: 10%;
+    left: 40%;
+    font-size: 5rem;
+    color: blue;
+  }
+  .steps i {
+    font-size: 2.5rem;
+    margin-top: 10px;
+  }
+  .steps-container {
+    padding: 20px;
+    margin-top: 10px;
+  }
+}
+@media screen and (max-width: 575px) {
+}
