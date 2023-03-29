@@ -18,7 +18,7 @@ export const placeOrder = (token, amount) => async (dispatch, getState) => {
   const cartItems = getState().cart.cartItems;
 
   try {
-    const response = await axios.post("/orders/placeOrder", {
+    const response = await axios.post(`${process.env.REACT_APP_BASE_URL}/orders/placeOrder`, {
       token,
       amount,
       currentUser,
@@ -42,7 +42,7 @@ export const getOrders = () => async (dispatch, getState) => {
   const currentUser = getState().signin.currentUser;
 
   try {
-    const response = await axios.post("/orders/getOrders", {
+    const response = await axios.post(`${process.env.REACT_APP_BASE_URL}/orders/getOrders`, {
       userId: currentUser._id,
     });
     dispatch({ type: GET_ORDERS_SUCCESS, payload: response.data });
@@ -54,7 +54,7 @@ export const getOrders = () => async (dispatch, getState) => {
 export const getAllOrders = () => async (dispatch) => {
   dispatch({ type: GET_ALLORDERS_REQUEST });
   try {
-    const response = await axios.get("/orders/getAllOrders");
+    const response = await axios.get(`${process.env.REACT_APP_BASE_URL}/orders/getAllOrders`);
     console.log(response);
     dispatch({ type: GET_ALLORDERS_SUCCESS, payload: response.data });
   } catch (error) {
@@ -62,14 +62,16 @@ export const getAllOrders = () => async (dispatch) => {
   }
 };
 
+console.log("======================----------", process.env.REACT_APP_BASE_URL)
+
 export const deliver = (_id) => async (dispatch) => {
   try {
-    const response = await axios.post("/orders/deliver", {
+    const response = await axios.post(`${process.env.REACT_APP_BASE_URL}/orders/deliver`, {
       _id,
     });
     console.log(response);
     alert("Order Delivered");
-    const orders = await axios.get("/orders/getAllOrders");
+    const orders = await axios.get(`${process.env.REACT_APP_BASE_URL}/orders/getAllOrders`);
     dispatch({ type: GET_ALLORDERS_SUCCESS, payload: orders.data });
   } catch (error) {
     console.log(error);

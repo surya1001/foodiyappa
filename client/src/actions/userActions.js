@@ -16,7 +16,7 @@ export const signupUser = (user) => async (dispatch) => {
   dispatch({ type: USER_SIGNUP_REQUEST });
 
   try {
-    const response = await axios.post("/users/signup", user);
+    const response = await axios.post(`${process.env.REACT_APP_BASE_URL}/users/signup`, user);
     console.log(response);
     dispatch({ type: USER_SIGNUP_SUCCESS, payload: response.data });
   } catch (error) {
@@ -28,7 +28,7 @@ export const signinUser = (user) => async (dispatch) => {
   dispatch({ type: USER_SIGNIN_REQUEST });
 
   try {
-    const response = await axios.post("/users/signin", user);
+    const response = await axios.post(`${process.env.REACT_APP_BASE_URL}/users/signin`, user);
     console.log(response);
     dispatch({ type: USER_SIGNIN_SUCCESS, payload: response.data });
 
@@ -50,7 +50,7 @@ export const getallusers = () => async (dispatch) => {
   dispatch({ type: GET_USERS_REQUEST });
 
   try {
-    const response = await axios.get("/users/getallusers");
+    const response = await axios.get(`${process.env.REACT_APP_BASE_URL}/users/getallusers`);
     console.log(response);
     dispatch({ type: GET_USERS_SUCCESS, payload: response.data });
   } catch (error) {
@@ -60,7 +60,7 @@ export const getallusers = () => async (dispatch) => {
 
 export const deleteuser = (_id) => async () => {
   try {
-    const response = await axios.post("/users/deleteuser", {
+    const response = await axios.post(`${process.env.REACT_APP_BASE_URL}/users/deleteuser`, {
       _id,
     });
 
