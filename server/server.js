@@ -8,6 +8,12 @@ dotenv.config();
 app.use(express.json());
 app.use(cors());
 
+app.use("/", require("./routes/productRoutes"));
+app.use("/users", require("./routes/userRoutes"));
+app.use("/orders", require("./routes/orderRoutes"));
+
+port = process.env.PORT || 9000;
+
 mongoose
   .connect(process.env.MONGO_URI, {
     useCreateIndex: true,
@@ -15,14 +21,11 @@ mongoose
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
-  .then(() => console.log("DATABASE CONNECTED"))
+  .then(() => {
+    console.log("DATABASE CONNECTED")
+    app.listen(port, () => {
+      console.log(`server is running on port : ${port}`);
+    });
+  })
   .catch((err) => console.log(err));
 
-app.use("/", require("./routes/productRoutes"));
-app.use("/users", require("./routes/userRoutes"));
-app.use("/orders", require("./routes/orderRoutes"));
-
-port = process.env.PORT || 9000;
-app.listen(port, () => {
-  console.log(`server is running on port : ${port}`);
-});

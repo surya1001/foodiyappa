@@ -41,6 +41,7 @@ const signin = async (req, res) => {
 const getallusers = async (req, res) => {
   try {
     const users = await User.find({}).sort({ createdAt: -1 });
+    console.log(users)
     res.send(users);
   } catch (err) {
     res.json({ message: err });
